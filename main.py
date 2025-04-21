@@ -15,6 +15,7 @@ class Main:
         self.rocks = []
         self.scissors = []
 
+
     def drawElements(self):
         for i in range(10):
             paper = Paper()
