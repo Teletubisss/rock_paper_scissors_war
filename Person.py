@@ -4,16 +4,16 @@ import random
 cellSize = 15
 cellNumber = 40
 screen = pygame.display.set_mode((cellNumber *cellSize, cellNumber *cellSize)) 
-clock = pygame.time.Clock()
+
 
 class Person:
     def __init__(self):
-        self.xBeginning = 5
-        self.yBeginning = 10
+        self.xBeginning = 0
+        self.yBeginning = 0
 
     def drawPerson(self):
         personRect = pygame.Rect(self.xBeginning * cellSize, self.yBeginning * cellSize, cellSize, cellSize)
-        pygame.draw.rect(screen, (255, 0, 0), personRect)
+        pygame.draw.rect(screen, self.color, personRect)
 
     def randomPos(self):
         actions = [

@@ -1,8 +1,9 @@
 import pygame
 import random
-from Person import Person
 import sys
-
+from rock import Rock
+from paper import Paper
+from scissors import Scissors
 
 cellSize = 30
 cellNumber = 30
@@ -13,12 +14,33 @@ clock = pygame.time.Clock()
 
 class Main:
     def __init__(self):
-        self.person = Person()
+        self.papers = []
+        self.rocks = []
+        self.scissors = []
 
     def drawElements(self):
-        self.person.drawPerson()
+        for i in range(10):
+            paper = Paper()
+            paper.xBeginning = 5
+            paper.yBeggining = 5
+            self.papers.append(paper)
+        for x in range(10):
+            rock = Rock()
+            rock.xBeginning = 40
+            rock.yBeginning = 25
+            self.rocks.append(rock)
+        for x in range(10):
+            scissor = Scissors()
+            scissor.xBeginning = 10
+            scissor.yBeginning = 40
+            self.scissors.append(scissor)
+
+
+        
 
 main = Main()
+
+main.drawElements()
 
 while True:                                  
     for event in pygame.event.get():          #pygame.event - interaktujer z eventami, .get() - bierze eventy z kolejki
@@ -28,8 +50,18 @@ while True:
 
     screen.fill((75, 180, 113))
 
-    main.drawElements()
-    main.person.randomPos()
+
+    for paper in main.papers:
+        paper.drawPerson()
+        paper.randomPos()
+    for rock in main.rocks:
+        rock.drawPerson()
+        rock.randomPos()
+    for scissor in main.scissors:
+        scissor.drawPerson()
+        scissor.randomPos()
+
+
 
     pygame.display.update()                     #wrzxuca na ekran to, co my rysujem,y na tzw. sufrace - buforze ekranu
     clock.tick(5)                             #liczy czas co 60fps - gdyby nie to to na roznych kompach lecialoby szybciej lub woniei
