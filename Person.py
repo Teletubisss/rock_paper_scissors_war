@@ -1,9 +1,6 @@
 import pygame
 import random
-
-cellSize = 15
-cellNumber = 40
-screen = pygame.display.set_mode((cellNumber *cellSize, cellNumber *cellSize)) 
+from const import Const
 
 
 class Person:
@@ -11,8 +8,8 @@ class Person:
         self.xBeginning = 0
         self.yBeginning = 0
 
-    def drawPerson(self):
-        personRect = pygame.Rect(self.xBeginning * cellSize, self.yBeginning * cellSize, cellSize, cellSize)
+    def drawPerson(self, screen):
+        personRect = pygame.Rect(self.xBeginning * Const.cellSize, self.yBeginning * Const.cellSize, Const.cellSize, Const.cellSize)
         pygame.draw.rect(screen, self.color, personRect)
 
     def randomPos(self):
@@ -26,8 +23,8 @@ class Person:
         newX = random.choice(actions)(self.xBeginning)    #wybieramy random lambde(parametr)
         newY = random.choice(actions)(self.yBeginning)
 
-        if 0 <= newX < cellNumber:   #jezeli bedzie w ekranie - potem jak przemnozymy przy rysowaniu przez cellSize
+        if 0 <= newX < Const.cellNumber:   #jezeli bedzie w ekranie - potem jak przemnozymy przy rysowaniu przez cellSize
             self.xBeginning = newX
 
-        if 0 <= newY < cellNumber:
+        if 0 <= newY < Const.cellNumber:
             self.yBeginning = newY

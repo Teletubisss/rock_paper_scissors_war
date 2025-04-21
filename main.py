@@ -4,13 +4,10 @@ import sys
 from rock import Rock
 from paper import Paper
 from scissors import Scissors
+from const import Const
 
-cellSize = 30
-cellNumber = 30
-screen = pygame.display.set_mode((cellNumber *cellSize, cellNumber *cellSize)) 
+screen = pygame.display.set_mode((Const.cellNumber *Const.cellSize, Const.cellNumber *Const.cellSize)) 
 clock = pygame.time.Clock()
-
-
 
 class Main:
     def __init__(self):
@@ -26,13 +23,13 @@ class Main:
             self.papers.append(paper)
         for x in range(10):
             rock = Rock()
-            rock.xBeginning = 40
-            rock.yBeginning = 25
+            rock.xBeginning = 20
+            rock.yBeginning = 15
             self.rocks.append(rock)
         for x in range(10):
             scissor = Scissors()
             scissor.xBeginning = 10
-            scissor.yBeginning = 40
+            scissor.yBeginning = 20
             self.scissors.append(scissor)
 
 
@@ -52,13 +49,13 @@ while True:
 
 
     for paper in main.papers:
-        paper.drawPerson()
+        paper.drawPerson(screen)
         paper.randomPos()
     for rock in main.rocks:
-        rock.drawPerson()
+        rock.drawPerson(screen)
         rock.randomPos()
     for scissor in main.scissors:
-        scissor.drawPerson()
+        scissor.drawPerson(screen)
         scissor.randomPos()
 
 
