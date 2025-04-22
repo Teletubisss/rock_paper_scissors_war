@@ -14,21 +14,52 @@ class Main:
 
 
     def drawElements(self):
-        for i in range(10):
+        for i in range(100):
             paper = Paper()
             paper.xBeginning = 5
-            paper.yBeggining = 5
+            paper.yBeginning = 5
             self.papers.append(paper)
-        for x in range(10):
+        for x in range(100):
             rock = Rock()
             rock.xBeginning = 20
             rock.yBeginning = 15
             self.rocks.append(rock)
-        for x in range(10):
+        for x in range(100):
             scissor = Scissors()
             scissor.xBeginning = 10
             scissor.yBeginning = 20
             self.scissors.append(scissor)
+
+
+    def checkCollision(self):
+        rocks_to_remove = []
+        for rock in self.rocks:
+            for paper in self.papers:
+                if rock.getPos() == paper.getPos():
+                    rocks_to_remove.append(rock)
+        for rock in rocks_to_remove:
+            if rock in self.rocks:  # sprawdzamy, czy nadal jest
+                self.rocks.remove(rock)
+
+        papers_to_remove = []
+        for paper in self.papers:
+            for scissor in self.scissors:
+                if paper.getPos() == scissor.getPos():
+                    papers_to_remove.append(paper)
+        for paper in papers_to_remove:
+            if paper in self.papers:
+                self.papers.remove(paper)
+
+        scissors_to_remove = []
+        for scissor in self.scissors:
+            for rock in self.rocks:
+                if scissor.getPos() == rock.getPos():
+                    scissors_to_remove.append(scissor)
+        for scissor in scissors_to_remove:
+            if scissor in self.scissors:
+                self.scissors.remove(scissor)
+
+
 
 
         
@@ -57,7 +88,7 @@ while True:
         scissor.drawPerson()
         scissor.randomPos()
 
-
+    main.checkCollision()
 
     pygame.display.update()                     #wrzxuca na ekran to, co my rysujem,y na tzw. sufrace - buforze ekranu
     Const.clock.tick(5)                             #liczy czas co 60fps - gdyby nie to to na roznych kompach lecialoby szybciej lub woniei

@@ -28,3 +28,7 @@ class Person:
 
         if 0 <= newY < Const.cellNumber:
             self.yBeginning = newY
+
+    def getPos(self):
+        pos = (self.xBeginning, self.yBeginning)
+        return pos
