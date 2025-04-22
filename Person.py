@@ -8,9 +8,9 @@ class Person:
         self.xBeginning = 0
         self.yBeginning = 0
 
-    def drawPerson(self, screen):
+    def drawPerson(self):
         personRect = pygame.Rect(self.xBeginning * Const.cellSize, self.yBeginning * Const.cellSize, Const.cellSize, Const.cellSize)
-        pygame.draw.rect(screen, self.color, personRect)
+        Const.screen.blit(self.color, personRect)
 
     def randomPos(self):
         actions = [

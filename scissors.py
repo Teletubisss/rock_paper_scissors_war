@@ -1,4 +1,7 @@
 from person import Person
+import pygame
+from const import Const
 
 class Scissors(Person):
-    color = (255, 0, 0)
+    color = pygame.image.load("images/scissors.jpg").convert_alpha()
+    color = pygame.transform.scale(color, (Const.cellSize, Const.cellSize))
