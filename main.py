@@ -14,20 +14,20 @@ class Main:
 
 
     def drawElements(self):
-        for i in range(100):
+        for i in range(50):
             paper = Paper()
-            paper.xBeginning = 5
-            paper.yBeginning = 5
+            paper.xBeginning = 50
+            paper.yBeginning = 150
             self.papers.append(paper)
-        for x in range(100):
+        for x in range(50):
             rock = Rock()
-            rock.xBeginning = 20
-            rock.yBeginning = 15
+            rock.xBeginning = 150
+            rock.yBeginning = 150
             self.rocks.append(rock)
-        for x in range(100):
+        for x in range(50):
             scissor = Scissors()
-            scissor.xBeginning = 10
-            scissor.yBeginning = 20
+            scissor.xBeginning = 100
+            scissor.yBeginning = 50
             self.scissors.append(scissor)
 
 
@@ -91,4 +91,4 @@ while True:
     main.checkCollision()
 
     pygame.display.update()                     #wrzxuca na ekran to, co my rysujem,y na tzw. sufrace - buforze ekranu
-    Const.clock.tick(5)                             #liczy czas co 60fps - gdyby nie to to na roznych kompach lecialoby szybciej lub woniei
+    Const.clock.tick(20)                             #liczy czas co 60fps - gdyby nie to to na roznych kompach lecialoby szybciej lub woniei

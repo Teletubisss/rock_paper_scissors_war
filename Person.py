@@ -9,14 +9,16 @@ class Person:
         self.yBeginning = 0
 
     def drawPerson(self):
-        personRect = pygame.Rect(self.xBeginning * Const.cellSize, self.yBeginning * Const.cellSize, Const.cellSize, Const.cellSize)
+        personRect = pygame.Rect(self.xBeginning * Const.cellSize, self.yBeginning * Const.cellSize, Const.cellSize * 15, Const.cellSize * 15)
         Const.screen.blit(self.color, personRect)
 
     def randomPos(self):
         actions = [
+            lambda pos: pos + 2,
             lambda pos: pos + 1,  # dodaje 2       lambda parametr(y): parametr(y) z dzialaniem - lambda arguments : expression
             lambda pos: pos,      # nic nie robi
-            lambda pos: pos - 1   # odejmuje 1
+            lambda pos: pos - 1,   # odejmuje 1
+            lambda pos: pos - 2
         ]
 
 
