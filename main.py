@@ -16,18 +16,18 @@ class Main:
     def drawElements(self):
         for i in range(50):
             paper = Paper()
-            paper.xBeginning = 50
-            paper.yBeginning = 150
+            paper.xBeginning = 56
+            paper.yBeginning = 112
             self.papers.append(paper)
         for x in range(50):
             rock = Rock()
-            rock.xBeginning = 150
-            rock.yBeginning = 150
+            rock.xBeginning = 169
+            rock.yBeginning = 112
             self.rocks.append(rock)
         for x in range(50):
             scissor = Scissors()
-            scissor.xBeginning = 100
-            scissor.yBeginning = 50
+            scissor.xBeginning = 112
+            scissor.yBeginning = 37
             self.scissors.append(scissor)
 
 
@@ -75,7 +75,12 @@ while True:
             pygame.quit()
             sys.exit()                        #gdyby to na gorze sie rypnelo, to reszte wylaczy
 
-    Const.screen.fill((75, 180, 113))
+# Zamiast fill:
+    Const.screen.blit(pygame.transform.scale(
+        pygame.image.load("images/bg.jpg").convert(),
+        (Const.cellSize * Const.cellNumber * 1.5, Const.cellSize * Const.cellNumber)
+    ), (0, 0))
+
 
 
     for paper in main.papers:

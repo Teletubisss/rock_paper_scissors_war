@@ -25,7 +25,7 @@ class Person:
         newX = random.choice(actions)(self.xBeginning)    #wybieramy random lambde(parametr)
         newY = random.choice(actions)(self.yBeginning)
 
-        if 0 <= newX < Const.cellNumber:   #jezeli bedzie w ekranie - potem jak przemnozymy przy rysowaniu przez cellSize
+        if 0 <= newX < Const.cellNumber * 1.5:   #jezeli bedzie w ekranie - potem jak przemnozymy przy rysowaniu przez cellSize
             self.xBeginning = newX
 
         if 0 <= newY < Const.cellNumber:
